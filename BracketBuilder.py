@@ -3,9 +3,12 @@ March Madness Bracket Generator
 Version 1: coin flip fill: each game is a perfect 50/50 for each team
 
 Version 2: Added seed consideration: better seeded teams are more likely to win, First Four are still pure 50/50 games
+
+Version 3: Added introduction and filler content to demonstrate git repository in action.
 """
 
-import random ## this is the only library outside of base Python needed here
+import random ## this is no longer the only library outside of base Python needed here
+import time ## this is necessary for the sleep function that has been added to work
 
 def play(team1, weight1, team2, weight2): ## this function decides which team wins, with bias towards better seeds
   randVal = random.random()
@@ -57,14 +60,35 @@ def build(teams): ## compiles the bracket by iterating through each division and
 
 def main(): ## reads in the text files of teams and seeds and builds the bracket
 
+  print("Welcome to the March Madness Bracket Simulator!")
+  time.sleep(2)
+  print("Reading team files.",end="")
+  time.sleep(2)
+  print(".",end="")
+  time.sleep(2)
+  print(".")
+
   input = open("teams.txt")
   round1 = []
 
   first4 = firstFour("firstFour.txt")
 
+  print("Calculating First Four winners.",end="")
+  time.sleep(2)
+  print(".",end="")
+  time.sleep(2)
+  print(".")
+
   print("The winners of the First Four are: ", end="")
   for team in first4:
     print(team,end=" ")
+  time.sleep(5)
+
+  print("Calculating full bracket.",end="")
+  time.sleep(2)
+  print(".",end="")
+  time.sleep(2)
+  print(".")
 
   for x in input:
     if (x == "FF South\n"):
